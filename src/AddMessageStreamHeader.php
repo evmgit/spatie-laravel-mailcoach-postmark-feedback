@@ -1,5 +1,6 @@
 <?php
 
+
 namespace Spatie\MailcoachPostmarkFeedback;
 
 use Illuminate\Mail\Events\MessageSending;
@@ -22,7 +23,7 @@ class AddMessageStreamHeader
             return;
         }
 
-        $event->message->getHeaders()->remove('X-PM-Message-Stream');
+        $event->message->getHeaders()->removeAll('X-PM-Message-Stream');
         $event->message->getHeaders()->addTextHeader('X-PM-Message-Stream', $messageStream);
     }
 }
